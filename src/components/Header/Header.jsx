@@ -1,5 +1,5 @@
 import React from "react";
-// import styles from 
+import styles from './Header.module.css'
 
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
@@ -7,8 +7,10 @@ import SearchBar from "../SearchBar/SearchBar";
 const Header = (props) => {
 
   return (
-    <div>
+    <div className={styles.header}>
       <SearchBar />
     </div>
   )
 }
+
+export default Header
