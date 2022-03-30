@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css"
 
-import getGeocode from "../../services/geocoding";
+import {getGeocode} from "../../services/geocoding";
 
 
 const SearchBar = (props) => {

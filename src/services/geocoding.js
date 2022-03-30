@@ -1,12 +1,19 @@
 const getGeocode = (apiKey, searchTerm) => {
   return fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm}&limit=5&appid=${apiKey}`)
   .then(response => response.json())
-  .then(data => data)
+  .then(data => data[0])
 }
-// const getGeocode = () => {
-//   return fetch(`http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=2cdd8aa148aacc4fe14cf6ed893e8b72`)
-//   .then(response => response.json())
-//   .then(data => data)
-// }
 
-export default getGeocode
+const getCurrentWeather = async (apiKey, searchTerm) => {
+  try {
+    const geoResponse = await getGeocode(apiKey, searchTerm)
+    const lon = geoResponse.lon
+    const lat = geoResponse.lat
+    const response = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+    return (await response).json()
+  } catch(error) {
+    throw error
+  }
+}
+
+export {getGeocode, getCurrentWeather}
