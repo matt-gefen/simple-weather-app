@@ -8,7 +8,7 @@ const Header = (props) => {
 
   return (
     <div className={styles.header}>
-      <SearchBar />
+      <SearchBar/>
     </div>
   )
 }

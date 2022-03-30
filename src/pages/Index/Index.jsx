@@ -7,7 +7,7 @@ const Index = (props) => {
 
   return (
     <div>
-      <Header />
+      <Header/>
     </div>
   )
 

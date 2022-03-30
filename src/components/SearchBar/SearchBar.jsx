@@ -21,7 +21,7 @@ const SearchBar = (props) => {
         placeholder="Enter City Name"
         onChange={handleSearch}
         />
-      <button onClick={console.log(getGeocode(searchText))}>Search</button>
+      <button onClick={console.log(getGeocode(process.env.REACT_APP_API_ID, searchText))}>Search</button>
     </div>
   )
 
